@@ -1,6 +1,6 @@
-# dataworks-repo-template
+# terraform-aws-waf
 
-## Description
+## A Terraform module to create an AWS Classic Regional WAF with consistent features
 
 This repo contains Makefile to fit the standard pattern.
 This repo is a base to create new non-Terraform repos, adding the githooks submodule, making the repo ready for use.
