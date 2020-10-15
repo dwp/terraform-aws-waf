@@ -10,4 +10,5 @@
 
 ci/terraform.tf
 
+# Misc
 .idea
