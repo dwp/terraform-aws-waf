@@ -12,7 +12,7 @@ module waf {
 
   name                  = "example"
   s3_log_bucket         = "example-bucket"
-  whitelist_cidr_blocks = "0.0.0.0/0"
+  whitelist_cidr_blocks = ["0.0.0.0/0"]
 
   tags = []
 }
@@ -55,7 +55,7 @@ module waf {
 
   name                  = "example"
   s3_log_bucket         = "example-bucket"
-  whitelist_cidr_blocks = "0.0.0.0/0"
+  whitelist_cidr_blocks = ["0.0.0.0/0"]
 
   max_size_constraints = {
     body         = 1024
