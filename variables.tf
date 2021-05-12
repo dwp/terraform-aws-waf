@@ -22,7 +22,7 @@ variable "s3_log_prefix" {
 variable "default_action"{
   description = "The default action for this WAF. Allowed values are ALLOW, BLOCK and COUNT."
   type = string
-  default = "ALLOW"
+  default = "BLOCK"
 }
 
 variable "geo_match_constraints" {
