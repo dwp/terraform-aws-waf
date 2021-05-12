@@ -10,10 +10,6 @@ locals {
       action  = "BLOCK"
       rule_id = aws_wafregional_rule.restrict_sizes.id
     },
-    {
-      action = "ALLOW"
-      rule_id = aws_wafregional_rule.match_ipset.id
-    },
     var.enabled_rules.xss ? {
       action  = "BLOCK"
       rule_id = aws_wafregional_rule.mitigate_xss[0].id
@@ -37,7 +33,11 @@ locals {
     var.enabled_rules.bad_auth_tokens ? {
       rule_id = aws_wafregional_rule.detect_bad_auth_tokens[0].id
       action  = "BLOCK"
-    } : null
+    } : null,
+    {
+      action = "ALLOW"
+      rule_id = aws_wafregional_rule.match_ipset.id
+    }
   ]
 
   rules = [
