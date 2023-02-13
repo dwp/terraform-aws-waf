@@ -1,0 +1,7 @@
+groups:
+  - name: pr
+    jobs:
+      - pull-request
+  # - name: release
+  #   jobs:
+  #     - release

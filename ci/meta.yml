@@ -1,0 +1,28 @@
+meta:
+  plan:
+    run-tests:
+      task: run-tests
+      config:
+        platform: linux
+        image-resource:
+          type: registry-image
+          icon: docker
+          source:
+            repository: golang
+            tag: 1.19
+        inputs:
+          - name: terraform-aws-waf
+            path: tests
+        run:
+          path: /bin/sh
+          args:
+            - -c
+            - |
+              GOPATH=$PWD/go
+              cd tests
+              go test -v ./...
+
+
+      # get-publish-version:
+
+      # publish-github-release:

@@ -1,0 +1,23 @@
+jobs:
+- name: pull-request
+  max_in_flight: 1
+  plan:
+  - get: terraform-aws-waf-pr
+  - put: terraform-aws-waf-pr
+    params:
+      path: terraform-aws-waf-pr
+      status: pending
+  - .: (( inject meta.plan.run-tests ))
+    params:
+      TF_WORKSPACE: default
+      SKIP_EXIT_CODE: "true"
+    on_failure:
+      put: terraform-aws-waf-pr
+      params:
+        path: terraform-aws-waf-pr
+        status: failure
+    on_success:
+      put: terraform-aws-waf-pr
+      params:
+        path: terraform-aws-waf-pr
+        status: success

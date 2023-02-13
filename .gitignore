@@ -12,3 +12,6 @@ ci/terraform.tf
 
 # Misc
 .idea
+
+# concoure pipeline config
+aviator_pipeline.yml

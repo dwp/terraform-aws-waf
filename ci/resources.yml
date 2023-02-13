@@ -1,0 +1,16 @@
+resources:
+  - name: terraform-aws-waf-pr
+    type: pull-request
+    source:
+      repository: dwp/terraform-aws-waf
+      access_token: ((dataworks-secrets.concourse_github_pat))
+    webhook_token: ((dataworks.concourse_github_webhook_token))
+    check_every: 1m
+
+  # - name: terraform-aws-waf
+  #   type: git
+  #   source:
+  #     branch: master
+  #     uri: https://github.com/dwp/terraform-aws-waf.git
+  #   webhook_token: ((dataworks.concourse_github_webhook_token))
+  #   check_every: 5m
