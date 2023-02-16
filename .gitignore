@@ -16,8 +16,8 @@ ci/terraform.tf
 aviator_pipeline.yml
 
 # terratest
-**/test/terratest/go.mod
-**/test/terratest/go.sum
+**/go.mod
+**/go.sum
 
 # Misc
 .idea
