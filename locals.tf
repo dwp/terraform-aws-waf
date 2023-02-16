@@ -35,7 +35,7 @@ locals {
       action  = "BLOCK"
     } : null,
     {
-      action = "ALLOW"
+      action  = "ALLOW"
       rule_id = aws_wafregional_rule.match_ipset.id
     }
   ]

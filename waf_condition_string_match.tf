@@ -58,15 +58,15 @@ resource "aws_wafregional_byte_match_set" "match_rfi_lfi_traversal" {
     }
   }
 
-    byte_match_tuples {
-      text_transformation   = "URL_DECODE"
-      target_string         = "://"
-      positional_constraint = "CONTAINS"
+  byte_match_tuples {
+    text_transformation   = "URL_DECODE"
+    target_string         = "://"
+    positional_constraint = "CONTAINS"
 
-      field_to_match {
-        type = "QUERY_STRING"
-      }
+    field_to_match {
+      type = "QUERY_STRING"
     }
+  }
 
   byte_match_tuples {
     text_transformation   = "URL_DECODE"
@@ -79,15 +79,15 @@ resource "aws_wafregional_byte_match_set" "match_rfi_lfi_traversal" {
   }
 
 
-    byte_match_tuples {
-      text_transformation   = "HTML_ENTITY_DECODE"
-      target_string         = "://"
-      positional_constraint = "CONTAINS"
+  byte_match_tuples {
+    text_transformation   = "HTML_ENTITY_DECODE"
+    target_string         = "://"
+    positional_constraint = "CONTAINS"
 
-      field_to_match {
-        type = "URI"
-      }
+    field_to_match {
+      type = "URI"
     }
+  }
 
   byte_match_tuples {
     text_transformation   = "HTML_ENTITY_DECODE"
@@ -100,15 +100,15 @@ resource "aws_wafregional_byte_match_set" "match_rfi_lfi_traversal" {
   }
 
 
-    byte_match_tuples {
-      text_transformation   = "URL_DECODE"
-      target_string         = "://"
-      positional_constraint = "CONTAINS"
+  byte_match_tuples {
+    text_transformation   = "URL_DECODE"
+    target_string         = "://"
+    positional_constraint = "CONTAINS"
 
-      field_to_match {
-        type = "URI"
-      }
+    field_to_match {
+      type = "URI"
     }
+  }
 
   byte_match_tuples {
     text_transformation   = "URL_DECODE"

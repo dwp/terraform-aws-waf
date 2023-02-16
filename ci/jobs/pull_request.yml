@@ -16,7 +16,7 @@ jobs:
   - task: pre-checks
     .: (( inject meta.plan.pre-checks ))
     input_mapping:
-      terraform-aws-waf: terraform-aws-waf-pr      
+      terraform-aws-waf: terraform-aws-waf-pr
   - task: terraform-terratest
     .: (( inject meta.plan.terraform-terratest ))
     input_mapping:

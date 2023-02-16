@@ -22,11 +22,14 @@ variable "test_account" {
 
 }
 
-resource "aws_s3_bucket" "test-bucket" {
+resource "aws_s3_bucket" "test_bucket" {
   bucket = "${random_id.s3_bucket_id.hex}-waf-test"
-  acl = "private"
 }
 
+resource "aws_s3_bucket_acl" "test_bucket_acl" {
+  acl    = "private"
+  bucket = aws_s3_bucket.test-bucket.id
+}
 
 module "waf" {
   source = "../"
@@ -34,9 +37,9 @@ module "waf" {
   name = "waf-module-test"
 
   whitelist_cidr_blocks = ["10.100.0.0/24"]
-  s3_log_bucket = resource.aws_s3_bucket.test-bucket.arn
+  s3_log_bucket         = resource.aws_s3_bucket.test-bucket.arn
 
   tags = {
-    Name: "waf-module-test"
+    Name : "waf-module-test"
   }
 }

@@ -14,4 +14,3 @@ resource "aws_wafregional_ipset" "allowed_ipset" {
     }
   }
 }
-
