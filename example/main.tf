@@ -28,7 +28,7 @@ resource "aws_s3_bucket" "test_bucket" {
 
 resource "aws_s3_bucket_acl" "test_bucket_acl" {
   acl    = "private"
-  bucket = aws_s3_bucket.test-bucket.id
+  bucket = aws_s3_bucket.test_bucket.id
 }
 
 module "waf" {
@@ -37,7 +37,7 @@ module "waf" {
   name = "waf-module-test"
 
   whitelist_cidr_blocks = ["10.100.0.0/24"]
-  s3_log_bucket         = resource.aws_s3_bucket.test-bucket.arn
+  s3_log_bucket         = resource.aws_s3_bucket.test_bucket.arn
 
   tags = {
     Name : "waf-module-test"
