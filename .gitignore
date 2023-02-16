@@ -10,6 +10,15 @@
 
 ci/terraform.tf
 
+**/example/.terraform
+**/example/.terraform*
+
+aviator_pipeline.yml
+
+# terratest
+**/test/terratest/go.mod
+**/test/terratest/go.sum
+
 # Misc
 .idea
 

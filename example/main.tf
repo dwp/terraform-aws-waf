@@ -1,0 +1,42 @@
+provider "aws" {
+  region = "eu-west-1"
+
+  assume_role {
+    role_arn = "arn:aws:iam::${var.test_account}:role/${var.assume_role}"
+  }
+}
+
+resource "random_id" "s3_bucket_id" {
+  byte_length = 16
+}
+
+variable "assume_role" {
+  type        = string
+  default     = "ci"
+  description = "Role to assume"
+}
+
+variable "test_account" {
+  type        = string
+  description = "Test AWS Account number"
+
+}
+
+resource "aws_s3_bucket" "test-bucket" {
+  bucket = "${random_id.s3_bucket_id.hex}-waf-test"
+  acl = "private"
+}
+
+
+module "waf" {
+  source = "../"
+
+  name = "waf-module-test"
+
+  whitelist_cidr_blocks = ["10.100.0.0/24"]
+  s3_log_bucket = resource.aws_s3_bucket.test-bucket.arn
+
+  tags = {
+    Name: "waf-module-test"
+  }
+}

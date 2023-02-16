@@ -1,7 +1,7 @@
 groups:
-  - name: pr
+  - name: pull-request
     jobs:
-      - pull-request
-  # - name: release
-  #   jobs:
-  #     - release
+      - terraform-aws-waf-pr
+  - name: update-pipeline
+    jobs:
+      - update-pipeline
