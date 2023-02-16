@@ -26,7 +26,6 @@ func TestWAF(t *testing.T) {
 
 
 	terraformOptionsWAF := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformBinary: "terraform 1.0.11",
 		// The path to where our Terraform code is located
 		TerraformDir: "../../example",
 		Upgrade:      true,
