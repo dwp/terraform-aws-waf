@@ -1,0 +1,32 @@
+jobs:
+- name: terraform-aws-waf-pr
+  max_in_flight: 1
+  plan:
+  - get: terraform-aws-waf-pr
+    trigger: true
+    version: every
+  - put: terraform-aws-waf-pr
+    params:
+      context: $BUILD_JOB_NAME
+      path: terraform-aws-waf-pr
+      status: pending
+  - .: (( inject meta.plan.terraform-bootstrap ))
+    input_mapping:
+      terraform-aws-waf: terraform-aws-waf-pr
+  - task: pre-checks
+    .: (( inject meta.plan.pre-checks ))
+    input_mapping:
+      terraform-aws-waf: terraform-aws-waf-pr
+    on_failure:
+      put: terraform-aws-waf-pr
+      params:
+        context: $BUILD_JOB_NAME
+        path: terraform-aws-waf-pr
+        status: failure
+    on_success:
+      put: terraform-aws-waf-pr
+      params:
+        context: $BUILD_JOB_NAME
+        path: terraform-aws-waf-pr
+        status: success
+  -.: (( inject meta.plan.notify ))

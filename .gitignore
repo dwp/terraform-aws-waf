@@ -10,5 +10,20 @@
 
 ci/terraform.tf
 
+**/example/.terraform
+**/example/.terraform*
+**/example/*.tfstate.*
+
+aviator_pipeline.yml
+
+**/.DS_Store
+
+# terratest
+**/go.mod
+**/go.sum
+
 # Misc
 .idea
+
+# concoure pipeline config
+aviator_pipeline.yml
