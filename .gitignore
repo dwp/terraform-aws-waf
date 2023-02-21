@@ -12,8 +12,11 @@ ci/terraform.tf
 
 **/example/.terraform
 **/example/.terraform*
+**/example/*.tfstate.*
 
 aviator_pipeline.yml
+
+**/.DS_Store
 
 # terratest
 **/go.mod

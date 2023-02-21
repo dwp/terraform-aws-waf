@@ -1,0 +1,14 @@
+jobs:
+- name: test
+  plan:
+  - get: terraform-aws-waf
+    trigger: true
+    version: every
+  - .: (( inject meta.plan.terraform-bootstrap ))
+    input_mapping:
+      terraform-aws-waf: terraform-aws-waf
+  - task: terraform-terratest
+    .: (( inject meta.plan.terraform-terratest ))
+    input_mapping:
+      terraform-aws-waf: terraform-aws-waf
+  .: (( inject meta.plan.notify ))
