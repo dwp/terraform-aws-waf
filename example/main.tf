@@ -16,6 +16,12 @@ variable "assume_role" {
   description = "Role to assume"
 }
 
+variable "test_account" {
+  type        = string
+  description = "Test AWS Account number"
+
+}
+
 resource "aws_s3_bucket" "test_bucket" {
   bucket = "${random_id.s3_bucket_id.hex}-waf-test"
 }

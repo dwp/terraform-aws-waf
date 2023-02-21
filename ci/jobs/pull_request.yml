@@ -29,3 +29,4 @@ jobs:
         context: $BUILD_JOB_NAME
         path: terraform-aws-waf-pr
         status: success
+  -.: (( inject meta.plan.notify ))
