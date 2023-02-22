@@ -15,5 +15,4 @@ jobs:
     params:
       repository: terraform-aws-waf-test
       merge: true
-  # .: (( inject meta.plan.promote ))
   .: (( inject meta.plan.notify ))
