@@ -4,6 +4,11 @@ jobs:
   - get: terraform-aws-waf-test
     trigger: true
     version: every
+  - get: terraform-aws-waf
+  - put: terraform-aws-waf-test
+    params:
+      repository: terraform-aws-waf
+      merge: true
   - .: (( inject meta.plan.terraform-bootstrap ))
     input_mapping:
       terraform-aws-waf: terraform-aws-waf-test
