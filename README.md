@@ -1,3 +1,5 @@
+# DO NOT USE THIS REPO - MIGRATED TO GITLAB
+
 # terraform-aws-waf
 
 A Terraform module to create an AWS Classic Regional WAF with consistent features
